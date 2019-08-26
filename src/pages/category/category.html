@@ -1,15 +1,29 @@
-<!--
-  Generated template for the CategoryPage page.
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-  <ion-navbar>
-    <ion-title>category</ion-title>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Categorias</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+  
+  
+  <ion-card *ngFor="let cat of categories">
+    <ion-card-header>
+      <ion-card-title>{{ cat.id }} - {{ cat.name }}</ion-card-title>
+    </ion-card-header>
+    
+    <ion-card-content>
+        <h2>Data de cadatro {{ cat.date }}</h2>
+        <img width="100" [src]="cat.imageUrl">
+        
+        <button ion-button color="light">
+            <ion-icon name="open"></ion-icon> &nbsp; Alterar 
+        </button>
+      </ion-card-content>
+    </ion-card>
 
 </ion-content>

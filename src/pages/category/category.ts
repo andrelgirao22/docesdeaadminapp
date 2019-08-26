@@ -1,12 +1,8 @@
+import { Category } from './../../model/category.dto';
+import { CategoryService } from './../../services/model/category.service';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-/**
- * Generated class for the CategoryPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -15,11 +11,20 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class CategoryPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  categories: Category[] = []
+
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    private categoryService: CategoryService) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad CategoryPage');
+   
+    this.categoryService.getCategories().subscribe(res => {
+      this.categories = res.content
+    })
+
   }
 
 }

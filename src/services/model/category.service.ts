@@ -13,10 +13,9 @@ export class CategoryService {
     urlCategory:string = `${API_CONFIG.baseUrl}/category`
 
     constructor(
-        private http: HttpClient,
-        private authService: AuthService) {}
+        private http: HttpClient) {}
 
-    getCategories(search?:string): Observable<any> {
+    getCategories(): Observable<any> {
         return this.http.get<Category[]>(this.urlCategoryPage)
     }
 

@@ -1,3 +1,4 @@
+import { CategoryService } from './../services/model/category.service';
 import { ErrorInterceptorProvider } from './interceptors/error.interceptor';
 import { AuthInterceptorProvider } from './interceptors/auth.interceptors';
 import { LocalStorageService } from './../services/model/local-storage.service';
@@ -30,6 +31,7 @@ import { HttpClientModule } from '@angular/common/http';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthService,
+    CategoryService,
     LocalStorageService,
     AuthInterceptorProvider,
     ErrorInterceptorProvider,
