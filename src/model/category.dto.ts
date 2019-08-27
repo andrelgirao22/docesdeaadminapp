@@ -6,6 +6,6 @@ export class Category {
     imageUrl: string = ''
     date = new Date();
 
-    constructor(){}
+    constructor() {}
     
 }

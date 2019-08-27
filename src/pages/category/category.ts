@@ -27,4 +27,8 @@ export class CategoryPage {
 
   }
 
+  update(cat: Category) {
+    this.navCtrl.push("CategoryDetailPage", { category_id: cat.id })
+  }
+
 }

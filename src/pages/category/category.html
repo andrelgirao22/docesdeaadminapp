@@ -9,21 +9,32 @@
 </ion-header>
 
 <ion-content padding>
-  
-  
+
+  <ion-fab bottom right edge>
+    <button color="primary" navPush="CategoryDetailPage" ion-fab mini><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
+
+  <h1 *ngIf="!categories">Não há registros</h1>
+
   <ion-card *ngFor="let cat of categories">
-    <ion-card-header>
-      <ion-card-title>{{ cat.id }} - {{ cat.name }}</ion-card-title>
-    </ion-card-header>
-    
-    <ion-card-content>
-        <h2>Data de cadatro {{ cat.date }}</h2>
-        <img width="100" [src]="cat.imageUrl">
-        
-        <button ion-button color="light">
-            <ion-icon name="open"></ion-icon> &nbsp; Alterar 
-        </button>
+    <ion-card-content> 
+      <ion-grid>
+        <ion-row>
+            <ion-col align-self-start size="6">
+              <h2><strong>Id:</strong>{{ cat.id }}</h2> 
+              <h2><strong>Nome:</strong>{{ cat.name }}</h2>
+              <h2><strong>Data:</strong>{{cat.date | date: "dd/MM/yyyy" }}</h2> 
+            </ion-col>
+            <ion-col>&nbsp;</ion-col>
+            <ion-col align-self-end>
+              <button ion-button color="light" (click)="update(cat)">
+                  <ion-icon name="open"></ion-icon> 
+              </button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
       </ion-card-content>
     </ion-card>
+
 
 </ion-content>
