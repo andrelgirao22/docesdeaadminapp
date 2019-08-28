@@ -1,5 +1,7 @@
 {
   "name": "DocesDaDeaAdmin",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "ionic-angular"
 }

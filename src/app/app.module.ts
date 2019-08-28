@@ -1,3 +1,4 @@
+import { Camera } from '@ionic-native/camera';
 import { CategoryService } from './../services/model/category.service';
 import { ErrorInterceptorProvider } from './interceptors/error.interceptor';
 import { AuthInterceptorProvider } from './interceptors/auth.interceptors';
@@ -35,6 +36,7 @@ import { HttpClientModule } from '@angular/common/http';
     LocalStorageService,
     AuthInterceptorProvider,
     ErrorInterceptorProvider,
+    Camera
   ]
 })
 export class AppModule {}

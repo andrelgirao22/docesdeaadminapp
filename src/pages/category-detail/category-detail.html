@@ -12,28 +12,29 @@
   
   
   <ion-content padding>
-  
     
-    <ion-card class="item">
+    <form [formGroup]="formGroup">
+
+      <ion-item>
+        <ion-label stacked>Nome*</ion-label>
+        <ion-input formControlName="name" type="text"></ion-input>
+      </ion-item>
+      <p class="danger" *ngIf="formGroup.controls['name'].dirty &&  formGroup.controls['name'].errors" margin-left>Valor inválido</p>
+
+      <ion-item>
+        <ion-thumbnail>
+          <img [src]="category?.imageUrl || 'assets/imgs/prod.jpg'">
+        </ion-thumbnail>
+      </ion-item>
+
+      <button ion-button block (click)="getCameraPicture()" [disabled]="cameraOn">Camera</button>
+      <button ion-button block (click)="getGalleryPicture()" [disabled]="cameraOn">Galeria</button>
       
-      <img [src]="category?.imageUrl || 'assets/imgs/prod.jpg'">
-      <ion-fab right edge>
-          <button color="lightprimary" navPush="CartPage" ion-fab mini>
-            <ion-icon name="cloud-upload"></ion-icon>
-          </button>
-      </ion-fab>
-      
-      <ion-card-content>
-        <ion-card-title>
-          {{ category?.name }}
-        </ion-card-title>
-        <p>
-          {{category?.date | date: "dd/MM/yyyy" }}
-        </p>
-      </ion-card-content>
-    </ion-card>
+    </form>
+    
+    
   
-    <button ion-button block outline (click)="save(category)">Salvar</button>
+    <button ion-button block outline (click)="save()">Salvar</button>
   
   </ion-content>
   
